@@ -1,9 +1,9 @@
 package com.gmail.genadyms.parse.dao.entity;
 
+import javax.persistence.*;
+
 import lombok.Getter;
 import lombok.Setter;
-
-import javax.persistence.*;
 
 @Entity(name = "project")
 @Getter
@@ -18,4 +18,9 @@ public class ProjectEntity
 	@Column(name = "description")
 	private String description;
 
+	@Override
+	public String toString()
+	{
+		return "ProjectEntity{" + "id=" + id + ", uniqueIdentifier='" + uniqueIdentifier + '\'' + ", description='" + description + '\'' + '}';
+	}
 }

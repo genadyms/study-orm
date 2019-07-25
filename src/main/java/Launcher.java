@@ -1,10 +1,26 @@
+import java.util.List;
+
+import javax.persistence.EntityManager;
+
 import com.gmail.genadyms.parse.dao.entity.ProjectEntity;
-import com.gmail.genadyms.parse.dao.factory.HibernateSessionFactory;
 import org.hibernate.Session;
+
+import com.gmail.genadyms.parse.dao.factory.HibernateSessionFactory;
 
 public class Launcher
 {
 	public static void main(String[] args)
+	{
+		EntityManager entityManager = HibernateSessionFactory.getSessionFactory().createEntityManager();
+		List<ProjectEntity> resultList = entityManager.createQuery("select p from project p").getResultList();
+		for(ProjectEntity p: resultList)
+		{
+			System.out.println(p);
+		}
+		entityManager.close();
+	}
+
+	private static void saveTestData()
 	{
 		System.out.println("App start!");
 
