@@ -1,0 +1,21 @@
+package com.gmail.genadyms.parse.dao.entity;
+
+import lombok.Getter;
+import lombok.Setter;
+
+import javax.persistence.*;
+
+@Entity(name = "project")
+@Getter
+@Setter
+public class ProjectEntity
+{
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	@Column(name = "unique_id")
+	private String uniqueIdentifier;
+	@Column(name = "description")
+	private String description;
+
+}
